@@ -153,7 +153,7 @@ const StorySlide = ({ onClose }) => {
       return;
     }
     const slideId = slides[currentIndex]._id;
-    const apiUrl = `http://localhost:3000/api/v1/${
+    const apiUrl = `https://storyapp-rinj.onrender.com/api/v1/${
       isLiked ? "unlikeSlide" : "likeSlide"
     }`;
     const toastId = toast.loading("Processing...", {
