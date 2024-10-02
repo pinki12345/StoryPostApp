@@ -46,7 +46,7 @@ const ModalTemplate = ({ isOpen, onClose, formType, setModalType }) => {
       try {
         let response;
         if (formType === 'signup') {
-          response = await axios.post('http://localhost:3000/api/v1/signup', {
+          response = await axios.post('https://storyapp-rinj.onrender.com/api/v1/signup', {
             username,
             password,
           });
@@ -65,7 +65,7 @@ const ModalTemplate = ({ isOpen, onClose, formType, setModalType }) => {
             );
           }
         } else{
-          response = await axios.post('http://localhost:3000/api/v1/login', {
+          response = await axios.post('https://storyapp-rinj.onrender.com/api/v1/login', {
             username,
             password,
           });

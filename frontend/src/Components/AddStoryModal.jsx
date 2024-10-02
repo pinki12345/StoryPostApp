@@ -165,7 +165,7 @@ const AddStoryModal = ({ isOpen, onClose }) => {
       let response;
       if (storyToEdit) {
         response = await axios.put(
-          `http://localhost:3000/api/v1/editStory/${storyToEdit._id}`,
+          `https://storyapp-rinj.onrender.com/api/v1/editStory/${storyToEdit._id}`,
           storyData,
           {
             headers: {
@@ -176,7 +176,7 @@ const AddStoryModal = ({ isOpen, onClose }) => {
         toast.success("Story edited successfully!", { id: toastId });
       } else {
         response = await axios.post(
-          "http://localhost:3000/api/v1/createStory",
+          "https://storyapp-rinj.onrender.com/api/v1/createStory",
           storyData,
           {
             headers: {

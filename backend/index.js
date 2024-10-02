@@ -10,7 +10,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173','https://story-post-app.vercel.app'],
     exposedHeaders: ['Authorization'],
     credentials: true,
   }));

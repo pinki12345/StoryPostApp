@@ -198,7 +198,7 @@ const StorySlide = ({ onClose }) => {
     const toastId = toast.loading("Processing...");
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/bookmark",
+        "https://storyapp-rinj.onrender.com//api/v1/bookmark",
         { slideId },
         {
           headers: {
@@ -237,7 +237,7 @@ const StorySlide = ({ onClose }) => {
       dispatch(setLoading(true));
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/shareslide/${slideId}`
+          `https://storyapp-rinj.onrender.com/api/v1/shareslide/${slideId}`
         );
         dispatch(setSlides(response.data.slides));
       } catch (err) {

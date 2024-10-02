@@ -107,7 +107,7 @@ export const fetchStoriesByCategory = (selectedCategories) => {
     if (token) {
       try {
         const userStoriesResponse = await axios.get(
-          "http://localhost:3000/api/v1/stories",
+          "https://storyapp-rinj.onrender.com/api/v1/stories",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -122,9 +122,9 @@ export const fetchStoriesByCategory = (selectedCategories) => {
         for (const category of selectedCategories) {
           let url;
           if (category === "All") {
-            url = `http://localhost:3000/api/v1/allStories`;
+            url = `https://storyapp-rinj.onrender.com/api/v1/allStories`;
           } else {
-            url = `http://localhost:3000/api/v1/getStoriesByCategory/${category}`;
+            url = `https://storyapp-rinj.onrender.com/api/v1/getStoriesByCategory/${category}`;
           }
 
           const response = await axios.get(url);
@@ -151,9 +151,9 @@ export const fetchStoriesByCategory = (selectedCategories) => {
         for (const category of selectedCategories) {
           let url;
           if (category === "All") {
-            url = `http://localhost:3000/api/v1/allStories`;
+            url = `https://storyapp-rinj.onrender.com/api/v1/allStories`;
           } else {
-            url = `http://localhost:3000/api/v1/getStoriesByCategory/${category}`;
+            url = `https://storyapp-rinj.onrender.com/api/v1/getStoriesByCategory/${category}`;
           }
           const response = await axios.get(url);
           storiesByCategory[category] = response.data;

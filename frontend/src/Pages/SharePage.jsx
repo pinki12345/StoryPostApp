@@ -81,7 +81,7 @@ const SharePage = ({onClose }) =>{
     }
 
     const slideId = slides[currentIndex]._id;
-    const apiUrl = `http://localhost:3000/api/v1/${
+    const apiUrl = `https://storyapp-rinj.onrender.com/api/v1/${
       isLiked ? "unlikeSlide" : "likeSlide"
     }`;
 
@@ -124,7 +124,7 @@ const SharePage = ({onClose }) =>{
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/bookmark",
+        "https://storyapp-rinj.onrender.com/api/v1/bookmark",
         { slideId },
         {
           headers: {
@@ -145,7 +145,7 @@ const SharePage = ({onClose }) =>{
 const handleShareClick = () => {
     const currentSlide = slides[currentIndex];
     const slideId = currentSlide._id; 
-    const newWindowUrl = `http://localhost:3000/api/v1/shareslide/${slideId}`; 
+    const newWindowUrl = `https://story-post-app.vercel.app/api/v1/shareslide/${slideId}`; 
     navigator.clipboard.writeText(newWindowUrl)
         .then(() => {
             toast.success("Story URL copied to clipboard!"); 
