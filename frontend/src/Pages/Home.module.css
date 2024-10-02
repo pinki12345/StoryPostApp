@@ -1,0 +1,451 @@
+.container {
+  font-family: "DM Sans", sans-serif;
+  width: 100vw;
+}
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navItem {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  transition: background-color 0.3s;
+}
+
+.navItem:hover {
+  background-color: #e0e0e0;
+}
+
+.active {
+  border: 2px solid #00aaff;
+}
+
+.authButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.registerBtn,
+.signInBtn {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+.addBookmarks {
+  display: flex;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background-color: #ff7373;
+  text-align: center;
+  justify-content: center;
+}
+
+.addBookmarks p {
+  margin-top: 2px;
+  padding: 0;
+}
+.registerBtn {
+  background-color: #ff4b5c;
+}
+
+.signInBtn {
+  background-color: #00aaff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cardText h3 {
+  font-size: 18px;
+  margin: 15px 0 5px;
+}
+
+.cardText p {
+  font-size: 14px;
+  color: #666;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: calc(100% - 20px);
+  padding: 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainCard {
+  display: flex;
+  gap: 25px;
+}
+
+.card {
+  min-width: 150px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.cardContainer::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+}
+
+.cardContainer {
+  scroll-padding-right: 20px;
+}
+
+.cardContainer {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(253, 214, 214, 0.5) rgba(249, 210, 210, 0.1);
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  width: 235px;
+  height: 235px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  cursor: pointer;
+  border:0;
+  min-width: 150px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.card img {
+  width: 235px;
+  height: 235px;
+}
+
+.cardText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.categoryTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.cardSectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.categoryContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.categoryContainer p {
+  color: #8e8e8e;
+  font-size: 20px;
+  text-align: flex-start;
+}
+.categoryTitle {
+  margin: 0 auto;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  grid-column: span 4;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.noStories {
+  text-align: center;
+  color: #8e8e8e;
+  font-size: 20px;
+}
+.storiesSection {
+  margin-top: 30px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.seeMoreBtn {
+  background-color: #ff4b5c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin: 20px auto;
+  width: 150px;
+}
+
+.rightSide {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.nameDisplay {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  width: 150px;
+}
+.nameDisplay p {
+  margin-right: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #000000;
+}
+.menuBar {
+  cursor: pointer;
+}
+.logoutBtn {
+  margin-top: 5px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background-color: #ff7373;
+}
+
+.modaloverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.selectedCard {
+  border: 5px solid #00acd2;
+  box-sizing: border-box;
+}
+
+.nameDisplayFirstnLast {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff4b5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .auth {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+  }
+
+  .menuIcon {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .bottomBox {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 20vh;
+    gap: 20px;
+    position: absolute;
+    top: 5vh;
+    right: 0px;
+    background-color: white;
+    border: none;
+    padding: 5px;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+  }
+  .authButtons {
+    display: flex;
+    gap: 10px;
+  }
+  .registerBtn,
+  .signInBtn,
+  .yourStory,
+  .logoutBtn {
+    width: 40vw;
+    height: 2.5rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    background-color: #ff7373;
+  }
+  .signIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bottomSignInBox {
+    margin-top: 42vh;
+    width: 100vw;
+    z-index: 100000;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+  }
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+    height: 3vh;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10000; 
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .menubtn {
+    cursor: pointer;
+    position: fixed;
+    right: 1rem;
+    top: 10px;
+  }
+  .nameofUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .fullName {
+    color: #000000;
+  }
+  .mainCard {
+    overflow-x: auto; 
+    flex-wrap: nowrap; 
+    padding: 10px; 
+    scroll-behavior: smooth; 
+  }
+
+  .cardContainer {
+    white-space: nowrap; 
+    scrollbar-width: thin;
+    margin-top: 3rem; 
+    padding: 0;
+  }
+
+  .card {
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
+    position: relative;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; 
+  }
+  .selectedCard {
+    border: 5px solid #00acd2 !important; 
+  }
+  .card img {
+    width: 100%; 
+    height: auto;
+  }
+  
+  .cardText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .categoryTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+  }
+  .cardSectionContainer {
+    padding: 5px;
+  }
+}

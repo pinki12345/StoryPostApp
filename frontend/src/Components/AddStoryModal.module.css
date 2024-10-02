@@ -1,0 +1,352 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  max-width: 650px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-family: "DM Sans", sans-serif;
+}
+
+.modal-content {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.modal-content p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  text-align: right;
+  margin-right: 25px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000;
+  cursor: pointer;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+}
+
+.slide-controls {
+  display: flex;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.slide-controls button {
+  padding: 8px 3px;
+  cursor: pointer;
+}
+
+.constSlideButton {
+  background-color: #fff;
+  width: 80px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19.53px;
+}
+
+.constSlideButton:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slide-controls .active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.slide-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-form input[type="text"],
+.slide-form textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.slide-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.slide-form select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.slide-form button {
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+.slide-form button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  flex: 2;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+.slide-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.remove {
+  margin-bottom: 30px;
+  right: 1px;
+  background-color: #fff;
+  color: #ff0000;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  border-radius: 50%;
+  border: 1px solid #ff0000;
+  position: absolute;
+}
+
+.active {
+  background-color: #ddd;
+  color: black;
+}
+
+.addSlide {
+  background-color: #fff;
+  width: 80px;
+  height: 60px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 19.53px;
+}
+
+.previousButton {
+  background-color: #7eff73;
+  color: white;
+  border: none;
+  width: 115.87px;
+  height: 35px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.previousButton:hover {
+  background-color: darkgreen;
+}
+
+.nextButton {
+  background-color: #73abff;
+  color: white;
+  border: none;
+  width: 110px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nextButton:hover {
+  background-color: darkblue;
+}
+
+.postButton {
+  background-color: #ff7373;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 35px;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.postButton:hover {
+  background-color: darkred;
+}
+
+.buttonPrevNext {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw;
+    height: 65vh;
+    overflow-y: auto;
+    margin-top: 20px;
+    gap:1rem;
+  }
+
+  .modal-content {
+    overflow: hidden;
+  }
+
+  .modal-content p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    text-align: right;
+    margin-right: 25px;
+  }
+
+  .slideAndForm {
+    display: flex;
+    width: 80vw;
+    overflow: hidden; 
+  }
+
+  .slide-controls,
+  .slide-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .slide-controls {
+    width: 20vw;
+    margin-right: 20px;
+  }
+
+  .slide-form {
+    width: 60vw;
+  }
+
+  .form-group {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%; 
+    box-sizing: border-box;
+    overflow: hidden; 
+  }
+
+  .form-group label {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 5px; 
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%; 
+    box-sizing: border-box; 
+    min-width: 0; 
+  }
+
+  .form-group select {
+    max-width: 80%; 
+    z-index: 10; 
+    overflow: hidden; 
+    position: relative; 
+    width: calc(100% - 50px); 
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .nextButton,
+  .previousButton {
+    display: none;
+  }
+
+  .postButton {
+   margin-right:25vw;
+  }
+}
+

@@ -1,0 +1,166 @@
+.modalOverlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: #000000e5;
+    z-index: 8000;
+  }
+  
+  .modalContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .card {
+    width: 250px;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0) 70%
+      ),
+      linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 70%), #2c2c2c;
+    position: relative;
+  }
+  
+  .slideImage {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 50px;
+    right: 0.2px;
+  }
+  .headingText{
+    text-align: left;
+    margin-left:0px;
+    position: absolute;
+    bottom:90px;
+  }
+  .slide h3 {
+    text-align: left;
+    margin-left: 15px;
+  }
+  
+  .slide p {
+    text-align: left;
+    margin-left: 15px;
+  }
+  .slideVideo {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .prevButton,
+  .nextButton,
+  .closeButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .progressBarContainer {
+    display: flex;
+    width: 100%;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .progressBar {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    bottom: 0;
+    transition: width 0.1s linear;
+  }
+  
+  .segmentContainer {
+    display: flex;
+    width: 100%;
+  }
+  
+  .segment {
+    height: 5px;
+    margin-right: 2px;
+    position: relative;
+    flex-grow: 1;
+  }
+  
+  .closenShareButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    margin-left: -4px;
+    z-index: 2000;
+  }
+  .shareButton {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    margin-top: 10px;
+    top: 10px;
+    right: 5px;
+    z-index: 2000;
+  }
+  .bookmarkButton {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2000;
+  }
+  .heartButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    justify-content: center;
+    gap:2px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2000;
+  }
+  .bottomButton {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  
+  .likeCount {
+    margin-left: 5px; 
+    font-size: 15px;
+    color: #fff;
+    font-weight: 500; 
+  }
