@@ -10,7 +10,7 @@
   width: 100vw;
   height: 100vh;
   background: #000000e5;
-  z-index: 10000;
+  z-index: 1000;
   font-family: "DM Sans", sans-serif;
 }
 
@@ -283,5 +283,5 @@
 }
 
 .toast-container {
-  z-index: 11000; 
+  z-index: 20000;
 }

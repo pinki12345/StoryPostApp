@@ -173,16 +173,22 @@ const StorySlide = ({ onClose }) => {
         dispatch(unlikeSlide(slideId));
         setIsLiked(false);
         setLikeCount(likeCount - 1);
-        toast.success("Slide unliked!");
+        toast.success("Slide unliked!",{
+          className: "toast-container",
+        });
       } else {
         dispatch(likeSlide(slideId));
         setIsLiked(true);
         setLikeCount(likeCount + 1);
-        toast.success("Slide liked!");
+        toast.success("Slide liked!",{
+          className: "toast-container",
+        });
       }
     } catch (error) {
       toast.error(
-        error.response?.data?.message || "Error toggling like on the slide."
+        error.response?.data?.message || "Error toggling like on the slide.",{
+          className: "toast-container",
+        }
       );
     } finally {
       toast.dismiss(toastId);
@@ -195,10 +201,12 @@ const StorySlide = ({ onClose }) => {
       return;
     }
     const slideId = slides[currentIndex]._id;
-    const toastId = toast.loading("Processing...");
+    const toastId = toast.loading("Processing...",{
+      className: "toast-container",
+    });
     try {
       const response = await axios.post(
-        "https://storyapp-rinj.onrender.com//api/v1/bookmark",
+        "https://storyapp-rinj.onrender.com/api/v1/bookmark",
         { slideId },
         {
           headers: {
@@ -207,10 +215,14 @@ const StorySlide = ({ onClose }) => {
         }
       );
       setIsBookmarked(!isBookmarked);
-      toast.success(response.data.message);
+      toast.success(response.data.message,{
+        className: "toast-container",
+      });
     } catch (error) {
       toast.error(
-        error.response?.data?.message || "Error toggling bookmark on the slide."
+        error.response?.data?.message || "Error toggling bookmark on the slide.",{
+          className: "toast-container",
+        }
       );
     } finally {
       toast.dismiss(toastId);
@@ -220,14 +232,19 @@ const StorySlide = ({ onClose }) => {
   const handleShareClick = () => {
     const currentSlide = slides[currentIndex];
     const slideId = currentSlide._id;
-    const newWindowUrl = `http://localhost:5173/shareslide/${slideId}`;
+    const newWindowUrl = `https://story-post-eikq6h2w7-pinkis-projects.vercel.app/shareslide/${slideId}`;
+    console.log("Generated URL:", newWindowUrl);
     navigator.clipboard
       .writeText(newWindowUrl)
       .then(() => {
-        toast.success("Story URL copied to clipboard!");
+        toast.success("Story URL copied to clipboard!",{
+          className: "toast-container",
+        });
       })
       .catch(() => {
-        toast.error("Failed to copy URL.");
+        toast.error("Failed to copy URL.",{
+          className: "toast-container",
+        });
       });
   };
 
@@ -237,11 +254,13 @@ const StorySlide = ({ onClose }) => {
       dispatch(setLoading(true));
       try {
         const response = await axios.get(
-          `https://storyapp-rinj.onrender.com/api/v1/shareslide/${slideId}`
+          `https://storyapp-rinj.onrender.com/shareslide/${slideId}`
         );
         dispatch(setSlides(response.data.slides));
       } catch (err) {
-        toast.error(err.response?.data?.message || "Error loading slide.");
+        toast.error(err.response?.data?.message || "Error loading slide.",{
+          className: "toast-container",
+        });
       } finally {
         toast.dismiss(toastId);
         dispatch(setLoading(false));
@@ -296,6 +315,9 @@ const StorySlide = ({ onClose }) => {
       toast.error("Invalid media URL for download.");
     }
   };
+  useEffect(() => {
+    setProgress(0);
+  }, [currentIndex]);
 
   if (loading) return <Loader />;
   return (
@@ -332,7 +354,7 @@ const StorySlide = ({ onClose }) => {
             <button className={styles.closeButton} onClick={onClose}>
               X
             </button>
-            <button className={styles.shareButton} onClick={handleShareClick}>
+            <button className={styles.shareButton} onClick={()=>handleShareClick()}>
               <img src={share} alt="Share" />
             </button>
           </div>

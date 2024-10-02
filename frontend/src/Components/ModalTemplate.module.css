@@ -115,3 +115,7 @@ input {
     right: 10px;
   }
 }
+
+.toast-container {
+  z-index: 150000;
+}
