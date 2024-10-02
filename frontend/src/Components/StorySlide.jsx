@@ -254,7 +254,7 @@ const StorySlide = ({ onClose }) => {
       dispatch(setLoading(true));
       try {
         const response = await axios.get(
-          `https://storyapp-rinj.onrender.com/shareslide/${slideId}`
+          `https://storyapp-rinj.onrender.com/api/v1/shareslide/${slideId}`
         );
         dispatch(setSlides(response.data.slides));
       } catch (err) {
