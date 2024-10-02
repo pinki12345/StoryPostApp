@@ -108,6 +108,7 @@ const Home = () => {
     setMenuVisible(false);
     localStorage.removeItem("token");
     dispatch(logout());
+    setBottomBoxVisible(false);
   };
 
   useEffect(() => {
