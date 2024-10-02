@@ -232,7 +232,7 @@ const StorySlide = ({ onClose }) => {
   const handleShareClick = () => {
     const currentSlide = slides[currentIndex];
     const slideId = currentSlide._id;
-    const newWindowUrl = `https://story-post-eikq6h2w7-pinkis-projects.vercel.app/shareslide/${slideId}`;
+    const newWindowUrl = `https://story-post-app.vercel.app/shareslide/${slideId}`;
     console.log("Generated URL:", newWindowUrl);
     navigator.clipboard
       .writeText(newWindowUrl)
