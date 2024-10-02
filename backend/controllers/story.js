@@ -1,85 +1,36 @@
 const Story = require("../models/story");
 const User = require("../models/user");
 
-// exports.createStory = async (req, res) => {
-//   try {
-//     const userId = req.user._id;
-//     const { slides, category } = req.body;
-//     console.log("Slides,category",slides, category);
-
-//     if (
-//       ![
-//         "Animal",
-//         "Movies",
-//         "World",
-//         "Health and Fitness",
-//         "Education",
-//       ].includes(category)
-//     ) {
-//       return res.status(400).json({ message: `Invalid category: ${category}` });
-//     }
-
-//     if (!slides || !Array.isArray(slides) || slides.length < 3) {
-//       return res
-//         .status(400)
-//         .json({ message: "At least 3 slides are required." });
-//     }
-
-//     for (const slide of slides) {
-//       if (
-//         !slide.heading ||
-//         !slide.description ||
-//         (!slide.image && !slide.video)
-//       ) {
-//         return res.status(400).json({
-//           message:
-//             "Each slide must have a heading, description, and either an image or video.",
-//         });
-//       }
-//     }
-
-//     const newStory = new Story({
-//       slides,
-//       category,
-//       createdBy: userId,
-//     });
-//     await newStory.save();
-//     res.status(201).json({
-//       success: true,
-//       message: "Story created successfully!",
-//       data: newStory,
-//     });
-//   } catch (error) {
-//     console.error("Error creating story:", error);
-//     res.status(500).json({ message: "Server error", error });
-//   }
-// };
-
-
 exports.createStory = async (req, res) => {
   try {
     const userId = req.user._id;
     const { slides, category } = req.body;
     console.log("Slides, category:", slides, category);
 
-    // Validate the category
-    if (!["Animal", "Movies", "World", "Health and Fitness", "Education"].includes(category)) {
+    if (
+      ![
+        "Animal",
+        "Movies",
+        "World",
+        "Health and Fitness",
+        "Education",
+      ].includes(category)
+    ) {
       return res.status(400).json({ message: `Invalid category: ${category}` });
     }
 
-    // Validate the slides
     if (!slides || !Array.isArray(slides) || slides.length < 3) {
-      return res.status(400).json({ message: "At least 3 slides are required." });
+      return res
+        .status(400)
+        .json({ message: "At least 3 slides are required." });
     }
 
     for (const slide of slides) {
-      // Ensure each slide has the required fields
       if (!slide.heading || !slide.description || !slide.url) {
         return res.status(400).json({
           message: "Each slide must have a heading, description, and a URL.",
         });
       }
-      
     }
 
     const newStory = new Story({
@@ -87,9 +38,9 @@ exports.createStory = async (req, res) => {
       category,
       createdBy: userId,
     });
-    
+
     await newStory.save();
-    
+
     res.status(201).json({
       success: true,
       message: "Story created successfully!",
@@ -101,15 +52,12 @@ exports.createStory = async (req, res) => {
   }
 };
 
-
 exports.getAllStories = async (req, res) => {
   try {
     const stories = await Story.find();
-    // Check if there are no stories
     if (!stories || stories.length === 0) {
       return res.status(200).json([]);
     }
-    // Return stories in response
     res.status(200).json({
       success: true,
       stories,
@@ -148,13 +96,13 @@ exports.getStoriesByUser = async (req, res) => {
   const userId = req.user._id;
   try {
     console.log("userId: " + userId);
-    const stories = await Story.find({ createdBy: userId }); 
+    const stories = await Story.find({ createdBy: userId });
     if (!stories || stories.length === 0) {
       return res.status(200).json([]);
     }
     res.status(200).json({
       success: true,
-      stories, 
+      stories,
     });
   } catch (error) {
     console.error("Error retrieving stories:", error);
@@ -165,66 +113,6 @@ exports.getStoriesByUser = async (req, res) => {
     });
   }
 };
-
-// exports.editStory = async (req, res) => {
-//   try {
-//     const { storyId } = req.params;
-//     const { slides, category } = req.body;
-//     const userId = req.user._id;
-//     if (
-//       category &&
-//       ![
-//         "Animal",
-//         "Movies",
-//         "World",
-//         "Health and Fitness",
-//         "Education",
-//       ].includes(category)
-//     ) {
-//       return res.status(400).json({ message: `Invalid category: ${category}` });
-//     }
-//     if (!slides || !Array.isArray(slides) || slides.length < 3) {
-//       return res
-//         .status(400)
-//         .json({ message: "At least 3 slides are required." });
-//     }
-//     for (const slide of slides) {
-//       if (
-//         !slide.heading ||
-//         !slide.description ||
-//         (!slide.image && !slide.video)
-//       ) {
-//         return res.status(400).json({
-//           message:
-//             "Each slide must have a heading, description, and either an image or video.",
-//         });
-//       }
-//     }
-//     const story = await Story.findById(storyId);
-//     if (!story) {
-//       return res.status(404).json({ message: "Story not found." });
-//     }
-//     if (!story.createdBy.equals(userId)) {
-//       return res
-//         .status(403)
-//         .json({ message: "You do not have permission to edit this story." });
-//     }
-//     story.slides = slides;
-//     if (category) {
-//       story.category = category;
-//     }
-//     await story.save();
-
-//     res.status(200).json({
-//       success: true,
-//       message: "Story updated successfully!",
-//       data: story,
-//     });
-//   } catch (error) {
-//     console.error("Error updating story:", error);
-//     res.status(500).json({ message: "Server error", error: error.message });
-//   }
-// };
 
 exports.likeSlide = async (req, res) => {
   try {
@@ -289,8 +177,8 @@ exports.unlikeSlide = async (req, res) => {
 
 exports.toggleBookmark = async (req, res) => {
   try {
-    const { slideId } = req.body; 
-    const userId = req.user._id; 
+    const { slideId } = req.body;
+    const userId = req.user._id;
     const story = await Story.findOne({ "slides._id": slideId });
 
     if (!story) {
@@ -324,27 +212,6 @@ exports.toggleBookmark = async (req, res) => {
   }
 };
 
-// exports.getSlideById = async (req, res) => {
-//   try {
-//     const slideId = req.params.id;
-//     const story = await Story.findOne({ "slides._id": slideId });
-//     if (!story) {
-//       return res.status(404).json({ message: "Story not found" });
-//     }
-//     const slide = story.slides.id(slideId);
-//     if (!slide) {
-//       return res.status(404).json({ message: "Slide not found" });
-//     }
-//     res.status(200).json({
-//       likedBy: slide.likedBy,
-//       likes: slide.likes,
-//       bookmarks: slide.bookmarks,
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: "Error fetching slide data", error });
-//   }
-// };
-
 exports.getBookmarksByUserId = async (req, res) => {
   try {
     const userId = req.user._id.toString();
@@ -355,17 +222,10 @@ exports.getBookmarksByUserId = async (req, res) => {
     const bookmarkedSlides = stories.flatMap((story) =>
       story?.slides
         .filter((slide) => {
-          
           if (!slide.bookmarks || !Array.isArray(slide.bookmarks)) {
             return false;
           }
           const userHasBookmarked = slide.bookmarks.some((bookmark) => {
-            // console.log(
-            //   "Comparing bookmark ID:",
-            //   bookmark._id.toString(),
-            //   "with User ID:",
-            //   userId
-            // );
             return bookmark._id.toString() === userId;
           });
 
@@ -394,14 +254,12 @@ exports.getBookmarksByUserId = async (req, res) => {
   }
 };
 
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 exports.getSlideById = async (req, res) => {
   const { id } = req.params;
-  console.log("Incoming Slide ID:", id); // Log the incoming slide ID
+  console.log("Incoming Slide ID:", id);
 
-  // Check if the id is a valid ObjectId
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ message: "Invalid Slide ID" });
   }
@@ -411,32 +269,37 @@ exports.getSlideById = async (req, res) => {
     if (!story) {
       return res.status(404).json({ message: "Slide not found" });
     }
-    res.json(story); // Return the specific slide details
+    res.json(story);
   } catch (error) {
-    console.error("Error retrieving slide:", error); // Log error details
+    console.error("Error retrieving slide:", error);
     res.status(500).json({ message: "Error retrieving slide", error });
   }
 };
-
 
 exports.editStory = async (req, res) => {
   try {
     const { storyId } = req.params;
     const { slides, category } = req.body;
     const userId = req.user._id;
-
-    // Validate the category if provided
-    if (category && !["Animal", "Movies", "World", "Health and Fitness", "Education"].includes(category)) {
+    if (
+      category &&
+      ![
+        "Animal",
+        "Movies",
+        "World",
+        "Health and Fitness",
+        "Education",
+      ].includes(category)
+    ) {
       return res.status(400).json({ message: `Invalid category: ${category}` });
     }
-
-    // Validate the slides
     if (!slides || !Array.isArray(slides) || slides.length < 3) {
-      return res.status(400).json({ message: "At least 3 slides are required." });
+      return res
+        .status(400)
+        .json({ message: "At least 3 slides are required." });
     }
 
     for (const slide of slides) {
-      // Ensure each slide has the required fields
       if (!slide.heading || !slide.description || !slide.url) {
         return res.status(400).json({
           message: "Each slide must have a heading, description, and a URL.",
@@ -444,24 +307,21 @@ exports.editStory = async (req, res) => {
       }
     }
 
-    // Find the existing story
     const story = await Story.findById(storyId);
     if (!story) {
       return res.status(404).json({ message: "Story not found." });
     }
 
-    // Check if the user has permission to edit the story
     if (!story.createdBy.equals(userId)) {
-      return res.status(403).json({ message: "You do not have permission to edit this story." });
+      return res
+        .status(403)
+        .json({ message: "You do not have permission to edit this story." });
     }
-
-    // Update the story's slides and category
     story.slides = slides;
     if (category) {
       story.category = category;
     }
 
-    // Save the updated story
     await story.save();
 
     res.status(200).json({

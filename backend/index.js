@@ -10,7 +10,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(cors({
-    origin: ['http://localhost:5173','https://quiz-app-ashen-three.vercel.app'],
+    origin: ['http://localhost:5173'],
     exposedHeaders: ['Authorization'],
     credentials: true,
   }));
