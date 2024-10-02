@@ -1,7 +1,6 @@
 import "./App.css";
 import Home from "./Pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SharePage from "./Pages/SharePage";
 import StorySlide from "./Components/StorySlide";
 
 
