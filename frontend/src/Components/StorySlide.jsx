@@ -21,6 +21,7 @@ import { FaHeart } from "react-icons/fa";
 import { MdFileDownloadDone } from "react-icons/md";
 import { IoBookmark } from "react-icons/io5";
 
+
 const validateUrl = async (url) => {
   try {
     const response = await fetch(url, { method: "HEAD" });

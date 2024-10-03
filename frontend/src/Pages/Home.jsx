@@ -430,7 +430,7 @@ const Home = () => {
             </div>
           ))
         ) : (
-          <p>No stories available for selected categories</p>
+          <p>Please select a category to view stories.</p>
         )}
       </div>
       {isModalOpen && (

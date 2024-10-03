@@ -183,12 +183,18 @@
   align-items: center;
   height: 100%;
 }
+.cardSectionContainer p{
+  color:#8E8E8E;
+  /* margin-top:60px; */
+  font-size: 20px;
+  font-weight: 700;
+}
 .categoryContainer {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .categoryContainer p {
-  color: #fff;
+  color: #8E8E8E;
   font-size: 20px;
   text-align: flex-start;
 }
@@ -315,9 +321,16 @@
   }
 
   .menuIcon {
-    width: 30px;
-    height: auto;
+    display: block; /* Ensure the menu icon is displayed */
     cursor: pointer;
+    width: 30px; /* Adjust the size if necessary */
+    height: 24px;
+  }
+  
+  /* Adjust its positioning to ensure visibility */
+  .menubtn {
+    position: relative;
+    z-index: 2; 
   }
 
   .bottomBox {
@@ -327,7 +340,7 @@
     height: 20vh;
     gap: 20px;
     position: absolute;
-    top: 5vh;
+    top: 5.5vh;
     right: 0px;
     background-color: white;
     border: none;
@@ -335,7 +348,7 @@
     z-index: 1000;
     align-items: center;
     justify-content: center;
-    position: fixed;
+ 
   }
   .authButtons {
     display: flex;
@@ -361,7 +374,7 @@
     align-items: center;
   }
   .bottomSignInBox {
-    margin-top: 42vh;
+    margin-top: 54vh;
     width: 100vw;
     z-index: 100000;
     display: flex;
@@ -379,7 +392,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    z-index: 10000; 
+    z-index: 1000; 
     background-color: #ffffff;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -413,9 +426,10 @@
   }
 
   .card {
-    width: 100%; 
-    max-width: 300px; 
-    height: auto; 
+    width: 80vw; /* Adjust card size based on viewport width */
+    max-width: 250px;
+    height: 30vh;
+    /* height: auto;  */
     position: relative;
     transition: border-color 0.3s ease;
     box-sizing: border-box; 
@@ -425,7 +439,7 @@
   }
   .card img {
     width: 100%; 
-    height: auto;
+    /* height: auto; */
   }
   
   .cardText {
