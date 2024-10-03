@@ -50,8 +50,12 @@
   align-items: flex-start;
   color: white;
 }
+.headingText h3{
+  font-size:25px ;
+}
 .headingText p{
   color: #fff;
+  font-size: 18px;
 }
 .slide h3 {
   text-align: flex-start;
@@ -283,7 +287,7 @@
   
   .headingText p {
     text-align: flex-start;
-    font-size: 25px;
+    /* font-size: 25px; */
   }
 }
 
